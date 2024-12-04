@@ -46,11 +46,10 @@ able to check if there are not run-time .
 
 
 ## Detailed view of each step
-
 2. **Develop**: Accordian
    1. how to make sure a multiple features can be developed parallely ??
       **ans** :  you create feature / bug branch and develop your feature there 
-   2. how to make sure the  `husky` : pre commit validator  : all the commands you it will execute
+   2. how to make sure the  `husky` : **pre** commit validator  : all the commands you it will execute
       1. code you wrote is running will it also run if released : `npm run build`
        3. readable : format `npm run format`
       3. follow code standards,  `npm run lint`
@@ -59,8 +58,13 @@ able to check if there are not run-time .
          2. some rules : styling
    3. you have completed all the feature requirement : `npm run test` 
       1. Jest , react testing library
-3. **Build** :  Create builds of the application.
+3. **Build** :  Create builds of the application. `github action` (continous integration)
    1. code push -> deploy apne code
+   2. PR : approve allow to merge  to development 
+4. **Test:** Run automated tests. : unit test  that you wrote are  there during the build process
+5. **Release:** Developer can push the build to a `staging , test , pre-prod ,  production 
+   1. These environments information can easily be mirrored using `docker`
+   2. `AWS` , GCP : cloud provie -> server me docker container
 
 
 
