@@ -8,9 +8,11 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "format":"prettier --write '**/*.{jsx,ts,css}'"
+    "format": "prettier --write '**/*.{jsx,ts,css}'",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "husky": "^9.1.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -25,6 +27,7 @@
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.12.0",
     "prettier": "^3.4.2",
-    "vite": "^6.0.1"
+    "vite": "^6.0.1",
+    "husky": "^8.0.0"
   }
 }

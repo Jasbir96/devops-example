@@ -47,20 +47,20 @@ able to check if there are not run-time .
 
 ## Detailed view of each step
 
-1. **Develop**: Accordian
+2. **Develop**: Accordian
    1. how to make sure a multiple features can be developed parallely ??
       **ans** :  you create feature / bug branch and develop your feature there 
-   2. how to make sure the 
+   2. how to make sure the  `husky` : pre commit validator  : all the commands you it will execute
       1. code you wrote is running will it also run if released : `npm run build`
-       3. readable : format
-      3. follow code standards, 
+       3. readable : format `npm run format`
+      3. follow code standards,  `npm run lint`
          1. you are not writing any potenitially buggy code : 
-            1. eval, var, unuused variables X
+            1. eval, var, unused variables X
          2. some rules : styling
-        
-   **and**
-   3. you have completed all the feature requirement ??
-
+   3. you have completed all the feature requirement : `npm run test` 
+      1. Jest , react testing library
+3. **Build** :  Create builds of the application.
+   1. code push -> deploy apne code
 
 
 
