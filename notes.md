@@ -50,7 +50,14 @@ able to check if there are not run-time .
 1. **Develop**: Accordian
    1. how to make sure a multiple features can be developed parallely ??
       **ans** :  you create feature / bug branch and develop your feature there 
-   2. how to make sure the code you wrote is running and follow code standards, readable  ??
+   2. how to make sure the 
+      1. code you wrote is running will it also run if released : `npm run build`
+       3. readable : format
+      3. follow code standards, 
+         1. you are not writing any potenitially buggy code : 
+            1. eval, var, unuused variables X
+         2. some rules : styling
+        
    **and**
    3. you have completed all the feature requirement ??
 
