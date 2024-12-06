@@ -6,9 +6,6 @@ DevOps is a set of practices that combines
 * It focuses on automation, collaboration, and continuous integration/continuous delivery (CI/CD).
 
 
-
-
-
 ## How real software development is done (High level)
 0. Requirement Gathering : 
    1. Edtech : algoprep : 
@@ -67,6 +64,16 @@ able to check if there are not run-time .
    2. `AWS` , GCP : cloud provie -> server me docker container
 
 
+
+## husky
+<!-- if command is not found run it in admin mode / linux or macos use sudo -->
+
+```bash
+rm -rf .husky
+npm install husky --save-dev
+npx husky install
+npx husky add .husky/pre-commit "npm test"
+```
 
 
 
