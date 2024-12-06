@@ -1,0 +1,46 @@
+name: CI Pipeline
+# trigger on pull request
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - development
+# jobs are steps that are executed
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Install dev dependencies
+      - name: Install dev dependencies
+        run: npm install --save-dev
+
+      # Step 5: Format code
+      - name: Format code
+        run: npm run format
+
+      # Step 6: Lint code
+      - name: Lint
+        run: npm run lint
+
+      # Step 7: Build
+      - name: Build
+        run: npm run build
+
+      # Step 8: Test
+      - name: Test
+        run: npm run test

@@ -183,8 +183,25 @@ npm install --save-dev @babel/preset-env @babel/preset-react babel-jest identity
 
 
 
+## Github Workflows
+
+GitHub Actions allows you to automate tasks like testing, building, and deploying your code. Workflows in GitHub Actions are defined in **YAML files** stored in `.github/workflows` in your repository.
+
+- **Workflow**: A series of steps to be executed 
+- **Trigger**: Events like a **pull request** or **push** that start the workflow.
 
 
+### Assume a local setup
+* OS -> networking
+* nodejs
+* nodemodules : package.json
+  Now you can run your set of steps : npm run  format, lint, build test
+
+###  CI: you run a  set check / workflow to make sure that the code is able to integarte 
+* which os you want, 
+* which nodejs version
+* package.json -> npm i , npm i --save-dev
+* you run your set of steps 
 
 
 
