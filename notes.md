@@ -101,6 +101,89 @@ npm install --save-dev eslint  eslint-plugin-import eslint-plugin-react  eslint-
 ```
 
 2. modify your eslint config
+```js
+ globals:{ ...globals.browser},
+   rules: {
+      ...js.configs.recommended.rules,
+      ...react.configs.recommended.rules,
+      ...react.configs['jsx-runtime'].rules,
+      ...reactHooks.configs.recommended.rules,
+      'no-console': 'error',
+      'no-unused-vars': 'error',
+      'react/jsx-no-target-blank': 'off',
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+    },
+  
+```
+
+
+### Adding unit testcases
+
+1. First, let's install the necessary dependencies:
+
+```bash
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event jest-environment-jsdom
+```
+
+2. create the component write the test cases
+
+3. `jest.config.js` 
+
+```js
+export default {
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  moduleNameMapper: {
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+  },
+  transform: {
+    '^.+\\.(js|jsx)$': 'babel-jest',
+  },
+};
+```
+
+
+4. Create a `jest.setup.js` file:
+
+```javascript:jest.setup.js
+import '@testing-library/jest-dom';
+```
+
+5. Create a `.babelrc` file:
+
+```json:.babelrc
+{
+  "presets": [
+    "@babel/preset-env",
+    ["@babel/preset-react", { "runtime": "automatic" }]
+  ]
+}
+```
+
+
+7. Install additional required dependencies:
+
+```bash
+npm install --save-dev @babel/preset-env @babel/preset-react babel-jest identity-obj-proxy
+```
+
+8. Update the `package.json` scripts section (reference to existing file at lines 6-13):
+
+```json:package.json
+{
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  }
+}
+```
+
+
+
+
 
 
 
