@@ -75,6 +75,22 @@ npx husky install
 npx husky add .husky/pre-commit "npm test"
 ```
 
+### prettier
+
+```
+npm install --save-dev prettier
+```
+
+```js
+{
+  "semi": true,
+  "tabWidth": 2,
+  "printWidth": 100,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "bracketSpacing": true
+} 
+```
 
 
 
