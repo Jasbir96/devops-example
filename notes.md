@@ -66,7 +66,7 @@ able to check if there are not run-time .
 
 
 ## husky
-<!-- if command is not found run it in admin mode / linux or macos use sudo -->
+`if command is not found run it in admin mode / linux or macos use sudo`****
 
 ```bash
 rm -rf .husky
@@ -92,11 +92,19 @@ npm install --save-dev prettier
 } 
 ```
 
+## eslint
+
+1. Install ESLint and its dependencies:
+
+```bash
+npm install --save-dev eslint  eslint-plugin-import eslint-plugin-react  eslint-plugin-react-hooks
+```
+
+2. modify your eslint config
 
 
 
-    
-   
+
 
 
 
