@@ -280,3 +280,30 @@ docker stop container-id
 # check for the content inside of that 
 docker run -it image-name sh
 ```
+
+## AWS,GCP,Azure: 
+* provide you cheaper, secure and global computing power : servers, databases,
+* Aws is available in a lot of geographical locations : multiple locations me place : latency 
+* they provide lot of sceurity : virtual private network : which traffic to allow and which to not
+* they are cheaper to use then owning a physical device  : lot of options to chooose from , you can scale accrodingly 
+*  AWS has a very good free tier
+
+
+### Few services 
+* Billing and cost management : go and set your budget 
+* AWS EC2 : a way to rent servers 
+* AWS ECS:  container management
+
+
+. **Update Ubuntu:**
+  - Once connected to the instance, update the package lists for upgrades and install new versions of software:
+     ```
+     sudo apt update
+     sudo apt upgrade
+    ```
+
+
+ 
+
+
+
