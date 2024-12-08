@@ -203,12 +203,80 @@ GitHub Actions allows you to automate tasks like testing, building, and deployin
 * package.json -> npm i , npm i --save-dev
 * you run your set of steps 
 
+## Release 
+* `Docker`: 
+  * what is the usecase of it 
+  * Important terms 
+  * How to use it 
+  * How to create a docker file 
+  * Then how to deploy your docker container 
+* `AWS`:
+  * AWS E2C : elastic compute , 
+  * `AWS ECS`
+  * `AWS Fargate`
+
+**Vitual machine** : 
+* physical hardware-> windows 10 , virtual : macos,linux
+* `hypervisor`: emulate a full fleged operating system  
+* `Software` : vmware , virtual box 
+* usecase :  it used by your cloud provider to provide virtual machine 
+* Advantage : It solves the problem  of environment
+* cons : it is heavy
+ 
+**What is Docker**
+* Docker is a platform for developing, shipping and running applications . 
+* It run these application in a thing called container
+* Containers are lightweight, standalone packages that include everything needed to run an application:
+  - System tools
+  - System libraries
+  - Settings
+  - Runtime  : node , python
+  - Code
+
+**Key Docker Concepts**
+* `Dockerfile`: Blueprint for building containers (configuration)
+* `Image`: Template for running containers 
+* `Container`: Running instance of an image
+* `Registry`: Storage for Docker images [docker hub]
 
 
 
 
+### Docker Download link
+Docker Installation : 
+* Ubuntu: https://docs.docker.com/desktop/setup/install/linux/ubuntu/
+* Windows : https://docs.docker.com/desktop/setup/install/windows-install/
+	* enable wsl2 : https://www.youtube.com/watch?v=eId6K8d0v6o
+* ubunutu : https://docs.docker.com/desktop/setup/install/mac-install/
 
 
 
+### Docker workflow 
+
+1. **Build Stage**: Creates a lightweight nodejs environment, installs dependencies, and builds the app.
+2. **Runtime Stage**: Starts with a fresh Node.js environment, copies built assets, and serves them using `serve`.
+3. **Result**: A smaller, production-ready Docker image optimized for deployment.
 
 
+
+### Essential Docker Commands
+After installing  docker desktop : you need to start it : build the image -> start from here 
+```bash
+# Build an image
+docker build -t image-name .
+
+# List images
+docker images
+
+# List running containers 
+docker ps
+
+# Run a container
+docker run -p 3000:3000 image-name
+
+# Stop a container -> can be done from docker desktop
+docker stop container-id
+
+# check for the content inside of that 
+docker run -it image-name sh
+```
