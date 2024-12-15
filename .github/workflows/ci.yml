@@ -1,46 +1,63 @@
-name: CI Pipeline
-# trigger on pull request
+name: CI/CD Pipeline
+
 on:
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
       - main
       - development
-# jobs are steps that are executed
+  push:
+    branches: [main]
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout the repository
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Install dev dependencies
       - name: Install dev dependencies
         run: npm install --save-dev
 
-      # Step 5: Format code
       - name: Format code
         run: npm run format
 
-      # Step 6: Lint code
-      - name: Lint
+      - name: Lint code
         run: npm run lint
 
-      # Step 7: Build
       - name: Build
         run: npm run build
 
-      # Step 8: Test
       - name: Test
         run: npm run test
+
+  deploy-to-ecr:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1  
+
+      - name: Build the Docker Image
+        run: |
+          docker build -t my-image .
+          docker tag my-image 905418167450.dkr.ecr.us-east-1.amazonaws.com/test-example/backend
+
+      - name: Login to ECR
+        run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 905418167450.dkr.ecr.us-east-1.amazonaws.com
+
+      - name: Push the Image to ECR
+        run: docker push 905418167450.dkr.ecr.us-east-1.amazonaws.com/test-example/backend
