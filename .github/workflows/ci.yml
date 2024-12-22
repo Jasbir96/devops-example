@@ -53,11 +53,11 @@ jobs:
 
       - name: Build the Docker Image
         run: |
-          docker build -t my-image .
-          docker tag my-image 905418167450.dkr.ecr.us-east-1.amazonaws.com/test-example/backend
+          dockzer build -t devops-image .
+          docker tag devops-image 905418167450.dkr.ecr.us-east-1.amazonaws.com/devops-ec5
 
       - name: Login to ECR
         run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 905418167450.dkr.ecr.us-east-1.amazonaws.com
 
       - name: Push the Image to ECR
-        run: docker push 905418167450.dkr.ecr.us-east-1.amazonaws.com/test-example/backend
+        run: docker push 905418167450.dkr.ecr.us-east-1.amazonaws.com/devops-ec5
