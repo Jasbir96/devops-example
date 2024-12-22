@@ -53,7 +53,7 @@ jobs:
 
       - name: Build the Docker Image
         run: |
-          dockzer build -t devops-image .
+          docker build -t devops-image .
           docker tag devops-image 905418167450.dkr.ecr.us-east-1.amazonaws.com/devops-ec5
 
       - name: Login to ECR
